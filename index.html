@@ -18,8 +18,10 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Work Day Scheduler</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   </head>
 
   <body>
@@ -28,11 +30,138 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container">
-      <!-- Timeblocks go here -->
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <section>
+      <div class="row row-date">
+        <div class="col-sm-6 col-12 d-flex align-items-start">
+          <h1>Date: <span id="date"></span></h1>
+        </div>
+        <div class="col-sm-6 col-12 d-flex align-items-start">
+          <h1>Time: <span id="time"></span></h1>
+        </div>
+      </div>
+    </section>
+    <section class="task-slots">
+      <div class="row row-task">
+        <div class="col-sm-2 col-3 time-slot">test</div>
+        <textarea class="col-sm-8 col-6 task-input">test</textarea>
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            justify-content-center
+            align-items-center
+            check-box
+          "
+        >
+          <p class="check">test</p>
+        </div>
+      </div>
+      <div class="row row-task">
+        <div class="col-sm-2 col-3 time-slot">test</div>
+        <textarea class="col-sm-8 col-6 task-input">test</textarea>
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            justify-content-center
+            align-items-center
+            check-box
+          "
+        >
+          <p class="check">test</p>
+        </div>
+      </div>
+      <div class="row row-task">
+        <div class="col-sm-2 col-3 time-slot">test</div>
+        <textarea class="col-sm-8 col-6 task-input">test</textarea>
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            justify-content-center
+            align-items-center
+            check-box
+          "
+        >
+          <p class="check">test</p>
+        </div>
+      </div>
+      <div class="row row-task">
+        <div class="col-sm-2 col-3 time-slot">test</div>
+        <textarea class="col-sm-8 col-6 task-input">test</textarea>
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            justify-content-center
+            align-items-center
+            check-box
+          "
+        >
+          <p class="check">test</p>
+        </div>
+      </div>
+      <div class="row row-task">
+        <div class="col-sm-2 col-3 time-slot">test</div>
+        <textarea class="col-sm-8 col-6 task-input">test</textarea>
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            justify-content-center
+            align-items-center
+            check-box
+          "
+        >
+          <p class="check">test</p>
+        </div>
+      </div>
+      <div class="row row-task">
+        <div class="col-sm-2 col-3 time-slot">test</div>
+        <textarea class="col-sm-8 col-6 task-input">test</textarea>
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            justify-content-center
+            align-items-center
+            check-box
+          "
+        >
+          <p class="check">test</p>
+        </div>
+      </div>
+      <div class="row row-task">
+        <div class="col-sm-2 col-3 time-slot">test</div>
+        <textarea class="col-sm-8 col-6 task-input">test</textarea>
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            justify-content-center
+            align-items-center
+            check-box
+          "
+        >
+          <p class="check">test</p>
+        </div>
+      </div>
+      <div class="row row-task">
+        <div class="col-sm-2 col-3 time-slot">test</div>
+        <textarea class="col-sm-8 col-6 task-input">test</textarea>
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            justify-content-center
+            align-items-center
+            check-box
+          "
+        >
+          <p class="check">test</p>
+        </div>
+      </div>
+    </section>
+    <script src="./assets/script.js"></script>
   </body>
 </html>

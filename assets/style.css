@@ -1,10 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1;
 }
 
-textarea{
+textarea {
   background: transparent;
   border: none;
   resize: none;
@@ -21,11 +27,11 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.description{
+.description {
   white-space: pre-wrap;
 }
 
-.time-block{
+.time-block {
   text-align: center;
   border-radius: 15px;
 }
@@ -33,7 +39,8 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
+  width: 100%;
 }
 
 .hour {
@@ -61,11 +68,46 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
+  background-color: #06aed5;
   color: white;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* CSS added by Troy */
+.row-date {
+  height: auto;
+  margin-bottom: 20px;
+}
+.task-slots {
+  margin-bottom: 40px;
+}
+.row-task {
+  background-color: green;
+}
+.time-slot {
+  border-style: solid;
+}
+.task-input {
+  border-style: solid;
+  border-right-style: none;
+  border-left-style: none;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.check-box {
+  border-style: solid;
+  text-align: center;
+}
+.check-box:hover {
+  border-width: 10px;
+}
+
+@media (max-width: 767px) {
+  .row-date h1 {
+    font-size: 30px;
+  }
 }

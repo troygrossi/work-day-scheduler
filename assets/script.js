@@ -10,36 +10,6 @@ var getDate = function () {
 
 var timeStatus = function () {};
 
-//Changes progress box on click; chnages color and text value
-$(".check-box").click(function () {
-  var index = $(this).attr("data-progress-index");
-  console.log($("[data-progress-index='" + index + "']"));
-  if (!$(this)[0].innerText) {
-    $(this)[0].innerText = "In Progress";
-    $(this)[0].style.background = getComputedStyle(
-      document.documentElement
-    ).getPropertyValue("--color-yellow");
-  } else if ($(this)[0].innerText === "In Progress") {
-    $(this)[0].innerText = "Complete";
-    $(this)[0].style.background = getComputedStyle(
-      document.documentElement
-    ).getPropertyValue("--color-green");
-    console.log($("[data-progress-index='" + index + "']"));
-    console.log($(this)[0].backgroundColor);
-  } else if ($(this)[0].innerText === "Complete") {
-    $(this)[0].innerText = "";
-    $(this)[0].style.background = getComputedStyle(
-      document.documentElement
-    ).getPropertyValue("--color-blank");
-  } else {
-    $(this)[0].innerText = "In Progress";
-    $(this)[0].style.background = getComputedStyle(
-      document.documentElement
-    ).getPropertyValue("--color-yellow");
-  }
-  console.log($(this)[0].backgroundColor);
-});
-
 var saveLocalData = function () {
   localStorage.clear;
   var index = 1;
@@ -65,6 +35,10 @@ var saveLocalData = function () {
   index = 1;
   $("[data-progress-index]").each(function () {
     localStorage.setItem("progress" + index, $(this).text());
+    localStorage.setItem(
+      "progress-color" + index,
+      $(this).css("background-color")
+    );
     index++;
   });
 };
@@ -95,9 +69,57 @@ var getLocalData = function () {
   index = 1;
   $("[data-progress-index]").each(function () {
     $(this).text(localStorage.getItem("progress" + index));
+    $(this).css(
+      "background-color",
+      localStorage.getItem("progress-color" + index)
+    );
     index++;
   });
 };
+
+//Changes progress box on click; chnages color and text value
+$(".check-box").click(function () {
+  var index = $(this).attr("data-progress-index");
+  console.log($("[data-progress-index='" + index + "']"));
+  if (!$(this)[0].innerText) {
+    $(this)[0].innerText = "In Progress";
+    $(this)[0].style.background = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+  } else if ($(this)[0].innerText === "In Progress") {
+    $(this)[0].innerText = "Complete";
+    $(this)[0].style.background = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-green");
+    console.log($("[data-progress-index='" + index + "']"));
+    console.log($(this)[0].backgroundColor);
+  } else if ($(this)[0].innerText === "Complete") {
+    $(this)[0].innerText = "";
+    $(this)[0].style.background = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-blank");
+  } else {
+    $(this)[0].innerText = "In Progress";
+    $(this)[0].style.background = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+  }
+  console.log($(this)[0].backgroundColor);
+});
+
+$(".time-hour").blur(function () {
+  if ($(this).val() > 12 || $(this).val() < 00 || isNaN($(this).val())) {
+    alert("Please input valid hours");
+    $(this).val("00");
+  }
+});
+$(".time-minute").blur(function () {
+  if ($(this).val() > 60 || $(this).val() < 00 || isNaN($(this).val())) {
+    alert("Please input valid minutes");
+    $(this).val("00");
+  }
+});
+
 getLocalData();
 $(window).click(function () {
   console.log("click");

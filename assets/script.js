@@ -1,6 +1,3 @@
-var date = moment().format("MMMM Do YYYY");
-var time = moment().format("h:mm:ss a");
-
 var yellow = getComputedStyle(document.documentElement).getPropertyValue(
   "--color-yellow"
 );
@@ -12,6 +9,8 @@ var red = getComputedStyle(document.documentElement).getPropertyValue(
 );
 
 var getDate = function () {
+  var date = moment().format("MMMM Do YYYY");
+  var time = moment().format("h:mm:ss a");
   $("#date").text(date);
   $("#time").text(time);
 };
@@ -190,7 +189,10 @@ $(".button-default").click(function () {
   setDefaultTimes();
 });
 
-getDate();
+$(document).ready(function () {
+  getDate();
+  setInterval(getDate, 1000);
+});
 getLocalData();
 $(window).click(function () {
   saveLocalData();

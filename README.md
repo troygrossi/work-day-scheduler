@@ -16,5 +16,3 @@ Features:
 - Events/logs saved locally
 
 Live URL: https://troygrossi.github.io/work-day-scheduler/
-
-Screenshot: <img src ="./assets/images/screenshot.png"/>

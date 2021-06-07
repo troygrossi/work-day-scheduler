@@ -7,7 +7,7 @@
   --color-blank: rgb(255, 255, 255);
   --color-green: rgba(22, 180, 43, 0.575);
   --color-yellow: rgba(196, 248, 7, 0.507);
-  --color-red: rgba(182, 12, 12, 0);
+  --color-red: rgba(182, 12, 12, 0.562);
 }
 
 body {

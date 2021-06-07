@@ -3,6 +3,16 @@ var time = moment().format("h:mm:ss a");
 console.log(date);
 console.log(time);
 
+var yellow = getComputedStyle(document.documentElement).getPropertyValue(
+  "--color-yellow"
+);
+var green = getComputedStyle(document.documentElement).getPropertyValue(
+  "--color-green"
+);
+var red = getComputedStyle(document.documentElement).getPropertyValue(
+  "--color-red"
+);
+
 var getDate = function () {
   $("#date").text(date);
   $("#time").text(time);
@@ -79,7 +89,26 @@ var getLocalData = function () {
 
 var inputColorChange = function () {
   var index = 1;
-  $(["data-minute-index"]).each(function () {});
+  var hour = moment().hour();
+  var scheduleHour;
+
+  $("[data-hour-index]").each(function () {
+    if ($(this).val()) {
+      if ($("[data-am-pm-index=" + index + "]").val() === "PM") {
+        scheduleHour = parseInt($(this).val()) + 12;
+      } else {
+        scheduleHour = parseInt($(this).val());
+      }
+      if (scheduleHour === hour) {
+        $("[data-text-index=" + index + "]").css("background-color", yellow);
+      } else if (scheduleHour > hour) {
+        $("[data-text-index=" + index + "]").css("background-color", green);
+      } else if (scheduleHour < hour) {
+        $("[data-text-index=" + index + "]").css("background-color", red);
+      }
+    }
+    index++;
+  });
 };
 
 //Changes progress box on click; chnages color and text value
@@ -117,7 +146,13 @@ $(".time-hour").blur(function () {
     alert("Please input valid hours");
     $(this).val("00");
   }
+  inputColorChange();
 });
+
+$(".am-pm").blur(function () {
+  inputColorChange();
+});
+
 $(".time-minute").blur(function () {
   if ($(this).val() > 60 || $(this).val() < 00 || isNaN($(this).val())) {
     alert("Please input valid minutes");
@@ -132,7 +167,6 @@ $(window).click(function () {
   saveLocalData();
 });
 // console.log(moment.format("h"));
-var count = 0;
 timeStatus();
 // $("[data-index]").each(function () {
 //   count++;

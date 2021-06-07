@@ -15,6 +15,6 @@ Features:
 - User capable of inputing events in time slots
 - Events/logs saved locally
 
-Live URL:
+Live URL: https://troygrossi.github.io/work-day-scheduler/
 
-Screenshot:
+Screenshot: <img src ="./assets/images/screenshot.png"/>

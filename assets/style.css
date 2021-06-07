@@ -3,6 +3,12 @@
   margin: 0;
   padding: 0;
 }
+:root {
+  --color-blank: rgb(255, 255, 255);
+  --color-green: rgba(22, 180, 43, 0.575);
+  --color-yellow: rgba(196, 248, 7, 0.507);
+  --color-red: rgba(182, 12, 12, 0);
+}
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -37,7 +43,6 @@ textarea {
 }
 
 .row {
-  white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
   width: 100%;
@@ -84,9 +89,6 @@ textarea {
 .task-slots {
   margin-bottom: 40px;
 }
-.row-task {
-  background-color: green;
-}
 .time-slot {
   border-style: solid;
 }
@@ -101,13 +103,81 @@ textarea {
 .check-box {
   border-style: solid;
   text-align: center;
+  font-size: 30px;
 }
 .check-box:hover {
-  border-width: 10px;
+  border-width: 5px;
+}
+.time {
+  font-size: 25px;
+  border-style: none;
+}
+.time:hover {
+  outline-style: solid;
+}
+.time-hour {
+  text-align: right;
+}
+.time-minute {
+  text-align: left;
+  margin-right: 3px;
+}
+.colon {
+  position: relative;
+  top: 5px;
+  font-size: 25px;
+}
+.am-pm {
+  border-style: none;
+  font-size: 20px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1180px) {
+  .check-box {
+    font-size: 20px;
+  }
+  .time {
+    font-size: 20px;
+  }
+  .colon {
+    font-size: 20px;
+    top: 7px;
+  }
+  .am-pm {
+    font-size: 20px;
+  }
+}
+@media (max-width: 800px) {
   .row-date h1 {
     font-size: 30px;
+  }
+  .check-box {
+    font-size: 15px;
+  }
+  .time {
+    font-size: 20px;
+  }
+  .colon {
+    font-size: 20px;
+  }
+  .am-pm {
+    font-size: 20px;
+  }
+}
+@media (max-width: 725px) {
+  .row-date h1 {
+    font-size: 25px;
+  }
+  .check-box {
+    font-size: 13px;
+  }
+  .time {
+    font-size: 13px;
+  }
+  .colon {
+    font-size: 20px;
+  }
+  .am-pm {
+    font-size: 15px;
   }
 }

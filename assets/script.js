@@ -77,6 +77,11 @@ var getLocalData = function () {
   });
 };
 
+var inputColorChange = function () {
+  var index = 1;
+  $(["data-minute-index"]).each(function () {});
+};
+
 //Changes progress box on click; chnages color and text value
 $(".check-box").click(function () {
   var index = $(this).attr("data-progress-index");
@@ -120,13 +125,13 @@ $(".time-minute").blur(function () {
   }
 });
 
+getDate();
 getLocalData();
 $(window).click(function () {
   console.log("click");
   saveLocalData();
 });
-
-getDate();
+// console.log(moment.format("h"));
 var count = 0;
 timeStatus();
 // $("[data-index]").each(function () {

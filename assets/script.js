@@ -1,7 +1,5 @@
 var date = moment().format("MMMM Do YYYY");
 var time = moment().format("h:mm:ss a");
-console.log(date);
-console.log(time);
 
 var yellow = getComputedStyle(document.documentElement).getPropertyValue(
   "--color-yellow"
@@ -17,8 +15,6 @@ var getDate = function () {
   $("#date").text(date);
   $("#time").text(time);
 };
-
-var timeStatus = function () {};
 
 var saveLocalData = function () {
   localStorage.clear;
@@ -40,6 +36,7 @@ var saveLocalData = function () {
   index = 1;
   $("[data-text-index]").each(function () {
     localStorage.setItem("text" + index, $(this).val());
+    localStorage.setItem("text-color" + index, $(this).css("background-color"));
     index++;
   });
   index = 1;
@@ -53,11 +50,9 @@ var saveLocalData = function () {
   });
 };
 var getLocalData = function () {
-  console.log("get data");
   var index = 1;
   $("[data-hour-index]").each(function () {
     $(this).val(localStorage.getItem("hour" + index));
-    console.log($(this).val());
     index++;
   });
   index = 1;
@@ -73,7 +68,7 @@ var getLocalData = function () {
   index = 1;
   $("[data-text-index]").each(function () {
     $(this).val(localStorage.getItem("text" + index));
-    console.dir($(this));
+    $(this).css("background-color", localStorage.getItem("text-color" + index));
     index++;
   });
   index = 1;
@@ -87,6 +82,32 @@ var getLocalData = function () {
   });
 };
 
+var setDefaultTimes = function () {
+  var hour = 8;
+  var minute = "00";
+  var index = 1;
+
+  $("[data-hour-index]").each(function () {
+    $(this).val(hour);
+    if (hour === 12) {
+      hour = 0;
+    }
+    hour++;
+  });
+  $("[data-minute-index]").each(function () {
+    $(this).val(minute);
+  });
+  $("[data-am-pm-index]").each(function () {
+    if (index >= 5) {
+      $(this).val("PM");
+    } else {
+      $(this).val("AM");
+    }
+    index++;
+  });
+  inputColorChange();
+};
+
 var inputColorChange = function () {
   var index = 1;
   var hour = moment().hour();
@@ -94,10 +115,19 @@ var inputColorChange = function () {
 
   $("[data-hour-index]").each(function () {
     if ($(this).val()) {
-      if ($("[data-am-pm-index=" + index + "]").val() === "PM") {
+      if ($("[data-am-pm-index=" + index + "]").val() === "AM") {
+        if (parseInt($(this).val()) === 12) {
+          scheduleHour = parseInt($(this).val()) + 12;
+        } else {
+          scheduleHour = parseInt($(this).val());
+        }
+      } else if ($("[data-am-pm-index=" + index + "]").val() === "PM") {
         scheduleHour = parseInt($(this).val()) + 12;
+        if (parseInt($(this).val()) === 12) {
+          scheduleHour = parseInt($(this).val());
+        }
       } else {
-        scheduleHour = parseInt($(this).val());
+        scheduleHour = parseInt($(this).val() + 12);
       }
       if (scheduleHour === hour) {
         $("[data-text-index=" + index + "]").css("background-color", yellow);
@@ -114,19 +144,16 @@ var inputColorChange = function () {
 //Changes progress box on click; chnages color and text value
 $(".check-box").click(function () {
   var index = $(this).attr("data-progress-index");
-  console.log($("[data-progress-index='" + index + "']"));
   if (!$(this)[0].innerText) {
     $(this)[0].innerText = "In Progress";
     $(this)[0].style.background = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-yellow");
+    ).getPropertyValue("--color-orange-dark");
   } else if ($(this)[0].innerText === "In Progress") {
     $(this)[0].innerText = "Complete";
     $(this)[0].style.background = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-green");
-    console.log($("[data-progress-index='" + index + "']"));
-    console.log($(this)[0].backgroundColor);
+    ).getPropertyValue("--color-green-dark");
   } else if ($(this)[0].innerText === "Complete") {
     $(this)[0].innerText = "";
     $(this)[0].style.background = getComputedStyle(
@@ -136,9 +163,8 @@ $(".check-box").click(function () {
     $(this)[0].innerText = "In Progress";
     $(this)[0].style.background = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-yellow");
+    ).getPropertyValue("--color-orange-dark");
   }
-  console.log($(this)[0].backgroundColor);
 });
 
 $(".time-hour").blur(function () {
@@ -149,27 +175,23 @@ $(".time-hour").blur(function () {
   inputColorChange();
 });
 
-$(".am-pm").blur(function () {
+$(".am-pm").click(function () {
   inputColorChange();
 });
 
-$(".time-minute").blur(function () {
+$(".time-minute").click(function () {
   if ($(this).val() > 60 || $(this).val() < 00 || isNaN($(this).val())) {
     alert("Please input valid minutes");
     $(this).val("00");
   }
 });
 
+$(".button-default").click(function () {
+  setDefaultTimes();
+});
+
 getDate();
 getLocalData();
 $(window).click(function () {
-  console.log("click");
   saveLocalData();
 });
-// console.log(moment.format("h"));
-timeStatus();
-// $("[data-index]").each(function () {
-//   count++;
-//   console.log($(this).attr("data-index"));
-// });
-// checkTime();

@@ -4,10 +4,12 @@
   padding: 0;
 }
 :root {
-  --color-blank: rgb(255, 255, 255);
-  --color-green: rgba(22, 180, 43, 0.575);
-  --color-yellow: rgba(196, 248, 7, 0.507);
-  --color-red: rgba(182, 12, 12, 0.562);
+  --color-blank: rgba(124, 123, 123, 0.514);
+  --color-green: rgba(19, 235, 48, 0.24);
+  --color-green-dark: rgba(4, 173, 27, 0.644);
+  --color-yellow: rgba(196, 248, 7, 0.185);
+  --color-orange-dark: rgba(248, 136, 44, 0.678);
+  --color-red: rgba(182, 12, 12, 0.171);
 }
 
 body {
@@ -82,12 +84,21 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 /* CSS added by Troy */
+.col-sm-2 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.col-3 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 .row-date {
   height: auto;
   margin-bottom: 20px;
 }
 .task-slots {
   margin-bottom: 40px;
+  margin-left: 20px;
 }
 .time-slot {
   border-style: solid;
@@ -97,19 +108,25 @@ textarea {
   border-right-style: none;
   border-left-style: none;
   padding: 0;
+  padding-top: 10px;
   height: 100%;
   width: 100%;
+  font-size: 20px;
+  text-align: center;
 }
 .check-box {
   border-style: solid;
   text-align: center;
   font-size: 30px;
+  font-weight: bold;
+  background-color: var(--color-blank);
 }
 .check-box:hover {
   border-width: 5px;
 }
 .time {
   font-size: 25px;
+  font-weight: bold;
   border-style: none;
 }
 .time:hover {
@@ -122,6 +139,23 @@ textarea {
   text-align: left;
   margin-right: 3px;
 }
+.button-default {
+  background-color: rgba(4, 166, 194, 0.623);
+  border-style: solid;
+  border-radius: 7px;
+  border-width: 3px;
+  border-color: rgb(1, 61, 71);
+  padding: 2px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+.button-default:hover {
+  border-width: 4px;
+}
+.button-default:active {
+  border-width: 3px;
+}
 .colon {
   position: relative;
   top: 6px;
@@ -130,9 +164,13 @@ textarea {
 .am-pm {
   border-style: none;
   font-size: 20px;
+  background-color: rgba(0, 0, 255, 0.178);
 }
 
 @media (max-width: 1180px) {
+  .task-input {
+    font-size: 18px;
+  }
   .check-box {
     font-size: 20px;
   }
@@ -148,11 +186,14 @@ textarea {
   }
 }
 @media (max-width: 800px) {
+  .task-input {
+    font-size: 15px;
+  }
   .row-date h1 {
     font-size: 30px;
   }
   .check-box {
-    font-size: 15px;
+    font-size: 16px;
   }
   .time {
     font-size: 20px;
@@ -161,23 +202,46 @@ textarea {
     font-size: 20px;
   }
   .am-pm {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 @media (max-width: 725px) {
+  .task-input {
+    font-size: 14px;
+  }
   .row-date h1 {
     font-size: 25px;
   }
   .check-box {
-    font-size: 13px;
+    font-size: 15px;
   }
   .time {
-    font-size: 13px;
+    font-size: 17px;
   }
   .colon {
     font-size: 20px;
   }
   .am-pm {
+    font-size: 12px;
+  }
+  .button-default {
+    font-size: 12px;
+  }
+}
+@media (max-width: 625px) {
+  .task-input {
+    font-size: 12px;
+  }
+  .time {
     font-size: 15px;
+  }
+  .colon {
+    font-size: 10px;
+  }
+  .am-pm {
+    font-size: 10px;
+  }
+  .button-default {
+    font-size: 10px;
   }
 }

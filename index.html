@@ -40,6 +40,7 @@
         </div>
       </div>
     </section>
+    <button class="button-default">Set Default</button>
     <section class="task-slots">
       <div class="row row-task">
         <div
@@ -59,6 +60,7 @@
             size="1"
             placeholder="08"
             data-hour-index="1"
+            onclick="this.select()"
           />
           <p class="colon">:</p>
           <input
@@ -68,6 +70,7 @@
             size="1"
             placeholder="00"
             data-minute-index="1"
+            onclick="this.select()"
           />
           <select class="am-pm" name="am-pm" data-am-pm-index="1">
             <option value="" selected disabled hidden>AM/PM</option>
@@ -110,6 +113,7 @@
             size="1"
             placeholder="09"
             data-hour-index="2"
+            onclick="this.select()"
           />
           <p class="colon">:</p>
           <input
@@ -119,6 +123,7 @@
             size="1"
             placeholder="00"
             data-minute-index="2"
+            onclick="this.select()"
           />
           <select class="am-pm" name="am-pm" data-am-pm-index="2">
             <option value="" selected disabled hidden>AM/PM</option>
@@ -159,6 +164,7 @@
             size="1"
             placeholder="10"
             data-hour-index="3"
+            onclick="this.select()"
           />
           <p class="colon">:</p>
           <input
@@ -168,6 +174,7 @@
             size="1"
             placeholder="00"
             data-minute-index="3"
+            onclick="this.select()"
           />
           <select class="am-pm" name="am-pm" data-am-pm-index="3">
             <option value="" selected disabled hidden>AM/PM</option>
@@ -208,6 +215,7 @@
             size="1"
             placeholder="11"
             data-hour-index="4"
+            onclick="this.select()"
           />
           <p class="colon">:</p>
           <input
@@ -217,6 +225,7 @@
             size="1"
             placeholder="00"
             data-minute-index="4"
+            onclick="this.select()"
           />
           <select class="am-pm" name="am-pm" data-am-pm-index="4">
             <option value="" selected disabled hidden>AM/PM</option>
@@ -257,6 +266,7 @@
             size="1"
             placeholder="12"
             data-hour-index="5"
+            onclick="this.select()"
           />
           <p class="colon">:</p>
           <input
@@ -266,6 +276,7 @@
             size="1"
             placeholder="00"
             data-minute-index="5"
+            onclick="this.select()"
           />
           <select class="am-pm" name="am-pm" data-am-pm-index="5">
             <option value="" selected disabled hidden>AM/PM</option>
@@ -306,6 +317,7 @@
             size="1"
             placeholder="01"
             data-hour-index="6"
+            onclick="this.select()"
           />
           <p class="colon">:</p>
           <input
@@ -315,6 +327,7 @@
             size="1"
             placeholder="00"
             data-minute-index="6"
+            onclick="this.select()"
           />
           <select class="am-pm" name="am-pm" data-am-pm-index="6">
             <option value="" selected disabled hidden>AM/PM</option>
@@ -355,6 +368,7 @@
             size="1"
             placeholder="02"
             data-hour-index="7"
+            onclick="this.select()"
           />
           <p class="colon">:</p>
           <input
@@ -364,6 +378,7 @@
             size="1"
             placeholder="00"
             data-minute-index="7"
+            onclick="this.select()"
           />
           <select class="am-pm" name="am-pm" data-am-pm-index="7">
             <option value="" selected disabled hidden>AM/PM</option>
@@ -404,6 +419,7 @@
             size="1"
             placeholder="03"
             data-hour-index="8"
+            onclick="this.select()"
           />
           <p class="colon">:</p>
           <input
@@ -413,6 +429,7 @@
             size="1"
             placeholder="00"
             data-minute-index="8"
+            onclick="this.select()"
           />
           <select class="am-pm" name="am-pm" data-am-pm-index="8">
             <option value="" selected disabled hidden>AM/PM</option>
@@ -433,6 +450,57 @@
             check-box
           "
           data-progress-index="8"
+        ></div>
+      </div>
+      <div class="row row-task">
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            flex-wrap
+            justify-content-center
+            align-items-center
+            time-slot
+          "
+        >
+          <input
+            class="time time-hour"
+            type="text"
+            maxlength="2"
+            size="1"
+            placeholder="04"
+            data-hour-index="9"
+            onclick="this.select()"
+          />
+          <p class="colon">:</p>
+          <input
+            class="time time-minute"
+            type="text"
+            maxlength="2"
+            size="1"
+            placeholder="00"
+            data-minute-index="9"
+            onclick="this.select()"
+          />
+          <select class="am-pm" name="am-pm" data-am-pm-index="9">
+            <option value="" selected disabled hidden>AM/PM</option>
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </div>
+        <textarea
+          class="col-sm-8 col-6 task-input"
+          data-text-index="9"
+        ></textarea>
+        <div
+          class="
+            col-sm-2 col-3
+            d-flex
+            justify-content-center
+            align-items-center
+            check-box
+          "
+          data-progress-index="9"
         ></div>
       </div>
     </section>
